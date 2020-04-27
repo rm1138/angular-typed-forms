@@ -77,6 +77,14 @@ export class TypedFormControl<T> extends FormControl {
       emitViewToModelChange?: boolean
     },
   ): void {
+    if (value === this.value) {
+      return
+    }
+    console.log('setValue')
+    options.onlySelf = true
+    options.emitEvent = false
+    options.emitModelToViewChange = false
+    options.emitViewToModelChange = false
     super.setValue(value, options)
   }
 
@@ -98,6 +106,7 @@ export class TypedFormControl<T> extends FormControl {
       emitViewToModelChange?: boolean
     },
   ): void {
+    console.log('patchValue')
     super.patchValue(value, options)
   }
 
@@ -126,6 +135,7 @@ export class TypedFormControl<T> extends FormControl {
       emitEvent?: boolean
     },
   ): void {
+    console.log('reset')
     super.reset(formState, options)
   }
 }

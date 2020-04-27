@@ -21,7 +21,7 @@ yarn add @gaplo917/angular-typed-forms
 
 
 ## Local Development
-You can use [`npm link`](https://docs.npmjs.com/cli/link.html) to develop this library locally without pushing every change npm registry.
+You can use [`npm link`](https://docs.npmjs.com/cli/link.html) to develop this library locally without pushing every change to npm registry.
 
 1. Build this library first.
 2. Go into the `dist/angular-typed-forms` and run `npm link`.

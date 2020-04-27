@@ -83,7 +83,7 @@ export class TypedFormArray<T extends AbstractControl> extends FormArray {
    * according to the value.
    *
    * If you had lots `FormControl` already bind to UI. Be careful to the performance
-   * and tune it will the options.
+   * and tune it with the options.
    *
    * If you only want to update a portion of the `FormArray`
    * @see `partialSync`
@@ -112,6 +112,7 @@ export class TypedFormArray<T extends AbstractControl> extends FormArray {
       emitEvent?: boolean
     },
   ): void {
+    console.log('fullSync')
     syncControl(this, value, options)
     super.setValue(value, options)
   }
@@ -145,6 +146,7 @@ export class TypedFormArray<T extends AbstractControl> extends FormArray {
       emitEvent?: boolean
     },
   ): void {
+    console.log('partialSync')
     syncControl(this, value, options)
     super.patchValue(value, options)
   }
@@ -164,6 +166,7 @@ export class TypedFormArray<T extends AbstractControl> extends FormArray {
    * @param control Form control to be inserted
    */
   push(control: T): void {
+    console.log('push')
     super.push(control)
   }
 
@@ -193,6 +196,7 @@ export class TypedFormArray<T extends AbstractControl> extends FormArray {
    * @param control The `T` control to replace the existing control
    */
   setControl(index: number, control: T): void {
+    console.log('setControl')
     super.setControl(index, control)
   }
 
@@ -238,6 +242,10 @@ export class TypedFormArray<T extends AbstractControl> extends FormArray {
       emitEvent?: boolean
     },
   ): void {
+    if (value === this.value) {
+      return
+    }
+    console.log('array setValue')
     super.setValue(value, options)
   }
 

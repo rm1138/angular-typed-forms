@@ -89,6 +89,7 @@ export class TypedFormGroup<T extends KeyValueControl<T>> extends FormGroup {
       emitEvent?: boolean
     },
   ): void {
+    console.log('form group full sync')
     syncControl(this, value, options)
     super.setValue(value, options)
   }
@@ -122,6 +123,7 @@ export class TypedFormGroup<T extends KeyValueControl<T>> extends FormGroup {
       emitEvent?: boolean
     },
   ): void {
+    console.log('form group partial sync')
     syncControl(this, value, options)
     super.patchValue(value, options)
   }
@@ -231,6 +233,8 @@ export class TypedFormGroup<T extends KeyValueControl<T>> extends FormGroup {
       emitEvent?: boolean
     },
   ): void {
+
+    console.log('form group setValue')
     super.setValue(value, options)
   }
 
@@ -279,6 +283,7 @@ export class TypedFormGroup<T extends KeyValueControl<T>> extends FormGroup {
       emitEvent?: boolean
     },
   ): void {
+    console.log('form group patchValue')
     super.patchValue(value, options)
   }
 
